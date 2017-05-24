@@ -2,6 +2,7 @@
 
 # Importing the dataset
 dataset = read.csv('Data.csv')
+#DATASET MUST HAVE 2 COLUMNS ONLY, TO COMPARE FIND HOW Y CHANGES DEPEDNING ON X
 
 # Splitting the dataset into the Training set and Test set
 # install.packages('caTools')

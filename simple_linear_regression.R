@@ -1,21 +1,25 @@
-# Simple Linear Regression
+# Data Preprocessing Template
 
 # Importing the dataset
-dataset = read.csv('Salary_Data.csv')
+dataset = read.csv('Data.csv')
+#DATASET MUST HAVE 2 COLUMNS ONLY, TO COMPARE FIND HOW Y CHANGES DEPEDNING ON X
+
+
+
+#energy is the dependent variable, metro is the independent variable
 
 # Splitting the dataset into the Training set and Test set
 # install.packages('caTools')
 library(caTools)
 set.seed(123)
-split = sample.split(dataset$Salary, SplitRatio = 2/3)
+split = sample.split(dataset$DependentVariable, SplitRatio = 0.8)
 training_set = subset(dataset, split == TRUE)
 test_set = subset(dataset, split == FALSE)
 
-# Feature Scaling
-# training_set = scale(training_set)
-# test_set = scale(test_set)
 
+#-----------------------------------------------------------------------------------------------------------
 # Fitting Simple Linear Regression to the Training set
+#IN THE FORMULA PART, FIRST PUT THE DEPENDENT, THEN THE INDEPENDENT
 regressor = lm(formula = Salary ~ YearsExperience,
                data = training_set)
 
