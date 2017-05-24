@@ -24,10 +24,11 @@ getwd() # where am I?
 list.files("dataSets") # files in the dataSets folder
 
 ## Load the states data
+states <- read_dta("states.dta")
 ## ────────────────────────
 
 # read the states data
-states.data <- readRDS("dataSets/states.rds") 
+states.data <- readRDS("states.rds") 
 #get labels
 states.info <- data.frame(attributes(states.data)[c("names", "var.labels")])
 #look at last few labels
@@ -37,6 +38,7 @@ tail(states.info, 8)
 ## ═══════════════════
 
 ## Examine the data before fitting models
+str(states)
 ## ──────────────────────────────────────────
 
 ##   Start by examining the data to check for problems.
@@ -68,6 +70,7 @@ sat.mod <- lm(csat ~ expense, # regression formula
               data=states.data) # data set
 # Summarize and print the results
 summary(sat.mod) # show regression coefficients table
+
 
 ## Why is the association between expense and SAT scores /negative/?
 ## ─────────────────────────────────────────────────────────────────────
